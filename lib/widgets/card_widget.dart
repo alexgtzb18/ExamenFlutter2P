@@ -1,27 +1,37 @@
+import 'package:examen_2do_parcial/models/pokemon.dart';
 import 'package:flutter/material.dart';
 
 class CardTile extends StatelessWidget {
-  const CardTile({ Key? key }) : super(key: key);
+
+  final List<Pokemon> pokemon;
+
+  final String tipo;
+  final Color bgColor;
+  const CardTile({Key? key, required this.tipo, required this.bgColor, required this.pokemon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
       decoration: BoxDecoration(
-        color: Colors.cyan,
-        borderRadius: BorderRadius.circular(20)
-      ),
+          color: bgColor, borderRadius: BorderRadius.circular(20)),
       height: 100,
       width: 10,
       child: ListTile(
         title: Padding(
           padding: const EdgeInsets.only(top: 30),
-          child: Text('Agua',
-            style: TextStyle(fontSize: 20, color: Colors.white, )),
+          child: Text(tipo,
+              style: const TextStyle(
+                  fontSize: 25,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold)),
         ),
-        trailing: Padding(
-          padding: EdgeInsets.only(top: 20),
-          child: Image(image: ),
+        trailing: Image.asset(
+          'assets/pokeballBlanca.png',
+          height: double.infinity,
+          color: const Color.fromRGBO(255, 255, 255, 0.2),
+          colorBlendMode: BlendMode.modulate,
         ),
       ),
     );
